@@ -1,7 +1,6 @@
 import express from 'express';
 import morgan from 'morgan';
 
-const router = express.Router();
 const app = express()
 app.use(morgan('dev'))
 app.use(express.json());
@@ -16,10 +15,10 @@ app.get('/health', (req, res) => {
     }
 })
 
-import userRouter from '../routes/user.routes.js'
+import cartsRouter from '../routes/cart.routes.js'
 import productsRouter from '../routes/product.routes.js'
-app.use('/api/user', userRouter);
-app.use('/api/products', productsRouter);
+app.use('/api/cart', cartsRouter);
+app.use('/api/product', productsRouter);
 
 
 app.listen(4000, () => {
