@@ -1,10 +1,12 @@
 import { Router } from "express";
-
+import CartManager from "../persistencia/cartManager.js";
 const router = Router();
 
-router.get("/", (req, res) => {
+const Cart = new CartManager();
+
+router.get("/", async (req, res) => {
     try {
-        let cart = cartList;
+        let cart = await Cart.getCart();
         res.status(200).send({ "Cart": cart })
     } catch (error) {
 

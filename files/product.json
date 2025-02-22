@@ -1,72 +1,114 @@
 [
-    {
-        "id": 1,
-        "nombre": "Camiseta Básica",
-        "descripcion": "Camiseta de algodón, varias tallas y colores.",
-        "precio": 15.99,
-        "stock": 50
-    },
-    {
-        "id": 2,
-        "nombre": "Jeans Clásicos",
-        "descripcion": "Pantalón de mezclilla con corte tradicional.",
-        "precio": 39.99,
-        "stock": 30
-    },
-    {
-        "id": 3,
-        "nombre": "Zapatos Deportivos",
-        "descripcion": "Calzado ideal para actividades físicas.",
-        "precio": 59.99,
-        "stock": 20
-    },
-    {
-        "id": 4,
-        "nombre": "Chaqueta de Cuero",
-        "descripcion": "Chaqueta de cuero genuino con diseño moderno.",
-        "precio": 129.99,
-        "stock": 15
-    },
-    {
-        "id": 5,
-        "nombre": "Reloj Inteligente",
-        "descripcion": "Reloj con monitor de actividad y notificaciones.",
-        "precio": 199.99,
-        "stock": 25
-    },
-    {
-        "id": 6,
-        "nombre": "Bolso de Mano",
-        "descripcion": "Bolso elegante para uso diario.",
-        "precio": 45.50,
-        "stock": 40
-    },
-    {
-        "id": 7,
-        "nombre": "Gafas de Sol",
-        "descripcion": "Protección UV con estilo moderno.",
-        "precio": 25.00,
-        "stock": 35
-    },
-    {
-        "id": 8,
-        "nombre": "Sombrero Fedora",
-        "descripcion": "Sombrero de ala ancha con diseño clásico.",
-        "precio": 30.00,
-        "stock": 22
-    },
-    {
-        "id": 9,
-        "nombre": "Cinturón de Cuero",
-        "descripcion": "Cinturón resistente y elegante.",
-        "precio": 20.00,
-        "stock": 45
-    },
-    {
-        "id": 10,
-        "nombre": "Sudadera con Capucha",
-        "descripcion": "Sudadera cómoda, ideal para el día a día.",
-        "precio": 35.00,
-        "stock": 60
-    }
+  {
+    "id": 1,
+    "nombre": "Camiseta Básica",
+    "descripcion": "Camiseta de algodón, varias tallas y colores.",
+    "precio": 15.99,
+    "stock": 50
+  },
+  {
+    "id": 2,
+    "nombre": "Jeans Clásicos",
+    "descripcion": "Pantalón de mezclilla con corte tradicional.",
+    "precio": 39.99,
+    "stock": 30
+  },
+  {
+    "id": 3,
+    "nombre": "Zapatos Deportivos",
+    "descripcion": "Calzado ideal para actividades físicas.",
+    "precio": 59.99,
+    "stock": 20
+  },
+  {
+    "id": 4,
+    "nombre": "Chaqueta de Cuero",
+    "descripcion": "Chaqueta de cuero genuino con diseño moderno.",
+    "precio": 129.99,
+    "stock": 15
+  },
+  {
+    "id": 5,
+    "nombre": "Reloj Inteligente",
+    "descripcion": "Reloj con monitor de actividad y notificaciones.",
+    "precio": 199.99,
+    "stock": 25
+  },
+  {
+    "id": 6,
+    "nombre": "Bolso de Mano",
+    "descripcion": "Bolso elegante para uso diario.",
+    "precio": 45.5,
+    "stock": 40
+  },
+  {
+    "id": 7,
+    "nombre": "Gafas de Sol",
+    "descripcion": "Protección UV con estilo moderno.",
+    "precio": 25,
+    "stock": 35
+  },
+  {
+    "id": 8,
+    "nombre": "Sombrero Fedora",
+    "descripcion": "Sombrero de ala ancha con diseño clásico.",
+    "precio": 30,
+    "stock": 22
+  },
+  {
+    "id": 9,
+    "nombre": "Cinturón de Cuero",
+    "descripcion": "Cinturón resistente y elegante.",
+    "precio": 20,
+    "stock": 45
+  },
+  {
+    "id": 10,
+    "nombre": "Sudadera con Capucha",
+    "descripcion": "Sudadera cómoda, ideal para el día a día.",
+    "precio": 35,
+    "stock": 60
+  },
+  {
+    "id": 12,
+    "nombre": "Zapatillas Adidas",
+    "descripcion": "Running",
+    "precio": 55,
+    "stock": 20
+  },
+  {
+    "id": 13,
+    "nombre": "Zapatillas Nike",
+    "descripcion": "Running",
+    "precio": 60,
+    "stock": 15
+  },
+  {
+    "id": 14,
+    "nombre": "Zapatillas Topper",
+    "descripcion": "Running",
+    "precio": 60,
+    "stock": 15
+  },
+  {
+    "nombre": "Zapatillas Samba Adidas",
+    "descripcion": "Running",
+    "precio": 60,
+    "stock": 15,
+    "id": 15
+  },
+  {
+    "nombre": "Botines Adidas Clasicos",
+    "descripcion": "Running",
+    "precio": 60,
+    "stock": 15,
+    "id": 16
+  },
+  {
+    "nombre": "Botines Nike",
+    "descripcion": "Running",
+    "precio": 60,
+    "stock": 15,
+    "id": 87660386.90618552
+  }
 ]
