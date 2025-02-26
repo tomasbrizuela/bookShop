@@ -23,5 +23,6 @@ app.use('/api/product', productsRouter);
 
 
 app.listen(PORT, () => {
+    console.log("Hola")
     console.log(`http://localhost:${PORT}`)
 })
