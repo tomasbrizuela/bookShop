@@ -12,6 +12,7 @@
   "dependencies": {
     "bookshop": "file:",
     "express": "^4.21.2",
+    "express-handlebars": "^8.0.1",
     "morgan": "^1.10.0",
     "nodemon": "^3.1.9"
   },
