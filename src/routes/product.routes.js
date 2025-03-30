@@ -4,11 +4,17 @@ import productModel from "../models/product.model.js";
 const router = Router();
 
 router.get('/', async (req, res) => {
-    let { page, limit, query, sort } = req.query;
-
+    let { page, limit, query, sortKey, order } = req.query;
+    page ?? 0;
+    let linkPreviousPage;
+    if (page > 0) {
+        linkPreviousPage = "/api/product?page=" + (Number(page) - 1) + "&limit=" + limit
+    }
+    let linkNextPage = "/api/product?page=" + (Number(page) + 1) + "&limit=" + limit
     try {
-        let products = await productModel.find().limit(limit).skip(page * limit)
-        return res.send({ info: { status: 'success', data: products } })
+        let items = await productModel.find()
+        let products = await productModel.find().limit(limit).skip(page * limit).sort({ [sortKey]: order == "desc" ? -1 : 1 })
+        return res.send({ status: 'success', payload: products, totalPages: Math.round(items.length / Number(limit ?? items.length)), prevPage: Number(page) - 1 < 0 ? 0 : Number(page) - 1, nextPage: Number(page) + 1, page: Number(page), linkPreviousPage, linkNextPage })
     } catch (error) {
         console.log(error)
     }
@@ -18,7 +24,7 @@ router.get("/:uid", async (req, res) => {
     let uid = req.params.uid;
     try {
         let product = await productModel.findById(uid);
-        return res.send({ status: 'success', data: product })
+        return res.send({ status: 'success', payload: product })
     } catch (error) {
         console.log(error)
     }
@@ -34,7 +40,7 @@ router.post('/', async (req, res) => {
             response = await new productModel(products);
             response.save()
         }
-        return res.send({ info: { status: 'success', data: response } })
+        return res.send({ info: { status: 'success', payload: response } })
     } catch (error) {
         console.log(error)
         return res.send({ info: error })
@@ -46,7 +52,7 @@ router.put('/:uid', async (req, res) => {
     try {
         let product = req.body;
         let productUpdated = await productModel.updateOne({ _id: uid }, product, { new: true })
-        return res.status(200).send({ status: 'success', data: productUpdated })
+        return res.status(200).send({ status: 'success', payload: productUpdated })
     } catch (error) {
         return res.status(400).send({ status: 'error', message: error })
     }
@@ -56,9 +62,9 @@ router.delete('/:uid', async (req, res) => {
     let uid = req.params.uid;
     try {
         let result = await productModel.deleteOne({ _id: uid });
-        return res.status(200).send({ status: 'success', data: result })
+        return res.status(200).send({ status: 'success', payload: result })
     } catch (error) {
-        return res.status(400).send({ status: 'error', data: error })
+        return res.status(400).send({ status: 'error', payload: error })
     }
 })
 
