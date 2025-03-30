@@ -1,0 +1,23 @@
+{{#if info.isHome}}
+<h1>Welcome to the home page</h1>
+<p>You will find a lot of books to buy</p>
+
+<h2>Lista de libros disponbiles</h2>
+<ul>
+    <li>
+        <a href="/api/product">products</a>
+        <a href="/api/cart">cart</a>
+    </li>
+</ul>
+
+{{else}}
+<h1>See all the products you can buy here</h1>
+<h2>Lista de libros disponbiles</h2>
+{{#each info.product}}
+<p>
+    {{this.author}}
+</p>
+</p>
+{{/each}}
+
+{{/if}}
