@@ -5,7 +5,8 @@ const router = Router();
 
 router.get('/', async (req, res) => {
     let { page, limit, query, sortKey, order } = req.query;
-    page ?? 0;
+    page = Number(page) || 0;
+
     let linkPreviousPage;
     if (page > 0) {
         linkPreviousPage = "/api/product?page=" + (Number(page) - 1) + "&limit=" + limit
@@ -13,8 +14,19 @@ router.get('/', async (req, res) => {
     let linkNextPage = "/api/product?page=" + (Number(page) + 1) + "&limit=" + limit
     try {
         let items = await productModel.find()
-        let products = await productModel.find().limit(limit).skip(page * limit).sort({ [sortKey]: order == "desc" ? -1 : 1 })
-        return res.send({ status: 'success', payload: products, totalPages: Math.round(items.length / Number(limit ?? items.length)), prevPage: Number(page) - 1 < 0 ? 0 : Number(page) - 1, nextPage: Number(page) + 1, page: Number(page), linkPreviousPage, linkNextPage })
+
+        let products = await productModel.find().lean().limit(limit).skip(page * limit).sort({ [sortKey]: order == "desc" ? -1 : 1 })
+        let info = {
+            status: 'success',
+            payload: products,
+            totalPages: Math.round(items.length / Number(limit ?? items.length)),
+            prevPage: Number(page) - 1 < 0 ? 0 : Number(page) - 1,
+            nextPage: Number(page) + 1,
+            page: Number(page),
+            linkPreviousPage,
+            linkNextPage
+        };
+        return res.render("index", { info })
     } catch (error) {
         console.log(error)
     }

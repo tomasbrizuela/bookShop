@@ -1,4 +1,3 @@
-{{#if info.isHome}}
 <h1>Welcome to the home page</h1>
 <p>You will find a lot of books to buy</p>
 
@@ -10,14 +9,31 @@
     </li>
 </ul>
 
-{{else}}
-<h1>See all the products you can buy here</h1>
-<h2>Lista de libros disponbiles</h2>
-{{#each info.product}}
-<p>
-    {{this.author}}
-</p>
-</p>
-{{/each}}
 
+<h2>Lista de Libros Disponibles</h2>
+{{#if info.payload}}
+{{#each info.payload}}
+<div class="producto">
+    <h3>{{this.name}}</h3>
+    <p><strong>Descripción:</strong> {{this.description}}</p>
+    <p><strong>Autor:</strong> {{this.author}}</p>
+    <p><strong>Precio:</strong> ${{this.price}}</p>
+    <p><strong>Cantidad:</strong> {{this.quantity}}</p>
+    <p><strong>Best Seller:</strong> {{#if this.bestSeller}}Sí{{else}}No{{/if}}</p>
+</div>
+{{/each}}
+{{else}}
+<p>No hay productos disponibles.</p>
 {{/if}}
+
+<footer>
+    <div class="paginacion">
+        <p>Página {{info.page}} de {{info.totalPages}}</p>
+        {{#if info.linkPreviousPage}}
+        <a href="{{info.linkPreviousPage}}">Anterior</a>
+        {{/if}}
+        {{#if info.linkNextPage}}
+        <a href="{{info.linkNextPage}}">Siguiente</a>
+        {{/if}}
+    </div>
+</footer>
